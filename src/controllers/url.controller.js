@@ -28,8 +28,8 @@ exports.create = (req, res) => {
 	});
 }
 
-exports.reroute = (req, res) => {
+exports.redirect = (req, res) => {
 	Url.findOne({ shortUrl: req.params.url}, function (err, url) {
-		res.status(200).send(url);
+		res.redirect(url.fullUrl);
     })
 }
