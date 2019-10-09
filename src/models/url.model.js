@@ -8,12 +8,11 @@ const UrlSchema = new Schema({
     shortUrl: {type: String}
 });
 
-UrlSchema.pre('save', (next) => {
+UrlSchema.pre('save', function(next) {
     this.shortUrl = urlGenerator.randomURL();
     console.log(this);
-    
-    next();
-})
+    return next();
+});
 
 // Export the model
 module.exports = mongoose.model('Url', UrlSchema);
