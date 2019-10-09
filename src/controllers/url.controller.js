@@ -1,31 +1,35 @@
-// const Todo = require('../models/todo.model');
+const Url = require('../models/url.model');
+
 
 //Simple version, without validation or sanitation
-export function test (req, res) {
+exports.test =  (req, res) => {
 	res.send('Greetings from the URL controller!');
 }
 
-export function create (req, res) {
-	// let todo = new Todo(
-	// 	{
-	// 		description: req.body.description,
-	// 		done: false
-	// 	}
-	// );
+exports.create = (req, res) => {
+	let url = new Url(
+		{
+			fullUrl: req.body.fullUrl
+		}
+	);
 
-	// todo.save(function (err, todo) {
-	// 	if (err) {
-	// 		return next(err);
-	// 	}
-	// 	res.status(200).send(todo);
-	// });
+	url.save(function (err, url) {
+		if (err) {
+			res.status(400).send(
+                {
+                    error: err,
+                    requestBody: req.body
+                }
+            );
+            return;
+        }
+        
+		res.status(200).send(url);
+	});
 }
 
-export function reroute (req, res) {
-	// Todo.findById(req.params.id, function (err, todo) {
-	// 	if (err) return next(err);
-	// 	res.status(200).send(todo);
-    // })
-    
-    
+exports.reroute = (req, res) => {
+	Url.findOne({ shortUrl: req.params.url}, function (err, url) {
+		res.status(200).send(url);
+    })
 }
