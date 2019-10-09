@@ -12,6 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/FrisoDenijs/url-shortener.git"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
   "author": "Friso Denijs",
   "license": "GPL-3.0-or-later",
   "bugs": {
@@ -31,6 +36,7 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.0.8"
   }
 }
