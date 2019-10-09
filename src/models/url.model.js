@@ -9,8 +9,8 @@ const UrlSchema = new Schema({
 });
 
 UrlSchema.pre('save', function(next) {
-    this.shortUrl = urlGenerator.randomURL();
-    console.log(this);
+    this.shortUrl = this.shortUrl === undefined ? urlGenerator.randomURL() : this.shortUrl;
+    
     return next();
 });
 

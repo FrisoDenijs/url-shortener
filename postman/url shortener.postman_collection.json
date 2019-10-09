@@ -125,6 +125,88 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Shorten URL with given short url",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "52d4f560-d279-4607-9cdf-01acea21509d",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    pm.expect(jsonData.fullUrl).to.eql(\"http://www.example.com/\");",
+							"});",
+							"",
+							"pm.environment.set(\"shortUrl\", jsonData.shortUrl);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"fullUrl\": \"http://www.example.com/\",\n\t\"shortUrl\": \"{{givenShortUrl}}\"\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}",
+					"host": [
+						"{{baseurl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Redirect with given short url",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33d9644a-2837-4241-9763-bbb1b9d4b34d",
+						"exec": [
+							"pm.test(\"Status code is 302\", function () {",
+							"    pm.response.to.have.status(302);",
+							"});",
+							"pm.test(\"Location header redirects to http://www.example.com/\", function () {",
+							"    pm.response.to.have.header(\"Location\");",
+							"    pm.response.to.be.header(\"Location\", \"http://www.example.com/\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseurl}}/{{givenShortUrl}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"{{givenShortUrl}}"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

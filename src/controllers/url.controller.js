@@ -9,7 +9,8 @@ exports.test =  (req, res) => {
 exports.create = (req, res) => {
 	let url = new Url(
 		{
-			fullUrl: req.body.fullUrl
+			fullUrl: req.body.fullUrl,
+			shortUrl: req.body.shortUrl || undefined
 		}
 	);
 
