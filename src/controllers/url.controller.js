@@ -16,12 +16,7 @@ exports.create = (req, res) => {
 
 	url.save(function (err, url) {
 		if (err) {
-			res.status(400).send(
-                {
-                    error: err,
-                    requestBody: req.body
-                }
-            );
+			res.status(400).send(err);
             return;
         }
         

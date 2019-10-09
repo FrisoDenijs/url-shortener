@@ -1,21 +1,12 @@
 //import express from 'express';
 
-const express = require('express');
 
-const bodyParser = require('body-parser');
-
-const urlRoute = require('./routes/url.route');
-const app = express();
 
 const mongooseSetup = require('./setups/mongoose.setup');
+const expressSetup = require('./setups/express.setup');
 
 mongooseSetup.setup();
-
-
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use('/api/url', urlRoute);
+const app = expressSetup.setup();
 
 
 

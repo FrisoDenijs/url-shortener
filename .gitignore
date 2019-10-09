@@ -62,3 +62,5 @@ typings/
 
 # folder where mongo will store data
 db/data
+
+.vscode
