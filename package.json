@@ -1,0 +1,20 @@
+{
+  "name": "url-shortener",
+  "version": "0.0.0",
+  "description": "A simple URL shortener",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrisoDenijs/url-shortener.git"
+  },
+  "author": "Friso Denijs",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/FrisoDenijs/url-shortener/issues"
+  },
+  "homepage": "https://github.com/FrisoDenijs/url-shortener#readme",
+  "private": true
+}
