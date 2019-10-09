@@ -31,6 +31,9 @@ exports.create = (req, res) => {
 
 exports.redirect = (req, res) => {
 	Url.findOne({ shortUrl: req.params.url}, function (err, url) {
-		res.redirect(url.fullUrl);
+		if (err) {
+			res.status(400).send(err);
+		}
+		url && url.fullUrl ? res.redirect(url.fullUrl) : res.status(404).send();
     })
 }

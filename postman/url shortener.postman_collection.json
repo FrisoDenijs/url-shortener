@@ -207,6 +207,41 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "No url found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68c40293-3bfb-461a-96d8-9d1dc25d6afb",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseurl}}/abc",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"abc"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
