@@ -5,7 +5,7 @@ const urlGenerator = require('../services/url-generator.service');
 
 const UrlSchema = new Schema({
     fullUrl: {type: String, required: true},
-    shortUrl: {type: String}
+    shortUrl: {type: String, unique: true}
 });
 
 UrlSchema.pre('save', function(next) {
