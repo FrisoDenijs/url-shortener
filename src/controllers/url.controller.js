@@ -17,8 +17,6 @@ exports.create = (req, res) => {
 
 	url.save(function (err, url) {
 		if (err) {
-			console.log(err);
-			
 			// res.status(400).send(err);
 			errorRedirecter.redirectError(err, res);
             return;

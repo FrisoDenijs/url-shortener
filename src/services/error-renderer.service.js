@@ -1,6 +1,6 @@
 exports.renderError = (err, res) => {
-    switch(err) {
-        case err.startsWith('m'):
+    switch(err.substring(0,1)) {
+        case 'm':
             handleMongoDBError(err, res);
             break;
         default:
@@ -20,7 +20,7 @@ const handleMongoDBError = (err, res) => {
 };
 
 const handleUnkownError = (err, res) => {
-    res.render('error', errObj(500, 'Unknown error, please send the following string to //placeholder//' + err));
+    res.render('error', errObj(500, 'Unknown error, please send the following string to //placeholder// \n' + err));
 };
 
 const errObj = (code, msg) => {

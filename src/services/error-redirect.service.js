@@ -3,8 +3,8 @@ const MongoError = "MongoError";
 exports.redirectError = (err, res) => {
     console.log(err);
     
-    switch(err) {
-        case err.name === MongoError:
+    switch(err.name) {
+        case MongoError:
             redirectMongoDBError(err, res);
             break;
         default:
