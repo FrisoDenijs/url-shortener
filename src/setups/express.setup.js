@@ -1,7 +1,7 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');
-const routesSetup = require('./express/routes.setup')
+const routesSetup = require('./express/routes.setup');
 
 exports.setup = () => {
     const app = express();
@@ -15,4 +15,4 @@ exports.setup = () => {
 
 
     return app;
-}
+};

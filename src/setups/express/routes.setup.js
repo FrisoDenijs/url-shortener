@@ -6,4 +6,4 @@ exports.setup = (app) => {
     app.use('/', viewRoute);
     app.use('/', redirectRoute);
     app.use('/api/url', urlRoute);
-}
+};

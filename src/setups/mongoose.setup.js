@@ -16,4 +16,4 @@ exports.setup = () => {
     db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
     return db;
-}
+};
