@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Error <%= code %></title>
-    <link rel='stylesheet' href='/style.css' />
-  </head>
-  <body>
-    <h1><%= code %></h1>
-    <p>
-        <%= msg %>
-    </p>
-  </body>
+
+<%- include('partials/head') %>
+
+<body>
+  <h1><%= code %></h1>
+  <p>
+    <%= msg %>
+  </p>
+
+  <%- include('partials/footer') %>
+</body>
+
 </html>
