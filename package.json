@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint 'src/**/*.js'",
     "start": "nodemon ./src/server.js",
+    "start:db": "mongod -dbpath db/data",
     "test": "test"
   },
   "repository": {

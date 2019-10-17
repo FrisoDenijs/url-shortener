@@ -6,5 +6,5 @@ exports.redirect = (req, res) => {
 			res.status(400).send(err);
 		}
 		url && url.fullUrl ? res.redirect(url.fullUrl) : res.status(404).send();
-    })
-}
+    });
+};

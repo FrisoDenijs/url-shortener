@@ -4,6 +4,6 @@ const redirectRoute = require ('../../routes/redirect.route');
 
 exports.setup = (app) => {
     app.use('/', viewRoute);
-    app.use('/', redirectRoute);
+    app.use('/r', redirectRoute);
     app.use('/api/url', urlRoute);
-}
+};
