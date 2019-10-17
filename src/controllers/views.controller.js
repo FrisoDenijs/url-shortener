@@ -1,7 +1,7 @@
 const errorRenderer = require('../services/error-renderer.service');
 
 exports.index =  (req, res) => {
-	res.render('index', { title: 'Express' });
+	res.render('index', { title: 'Friso\'s URL Shortener' });
 };
 
 exports.error =  (req, res) => {

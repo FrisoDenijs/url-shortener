@@ -25,6 +25,7 @@ const handleUnkownError = (err, res) => {
 
 const errObj = (code, msg) => {
     return {
+        title: 'Error ' + code, 
         code: code,
         msg: msg
     };
